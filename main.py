@@ -1,8 +1,8 @@
 import dash_bootstrap_components as dbc
-
 from dash import Dash, dcc, html
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
+from waitress import serve
 
 from detector import Detector
 from translate import Translator
@@ -52,4 +52,4 @@ def func(n_clicks, input_value):
     return ''
 
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    serve(server, host='0.0.0.0', port='9010')
